@@ -49,10 +49,8 @@ def DFS(root, fnc):
             return True
         else:
             temp = stack.pop(0)
-            try:        #use try:
+            if temp.getRight() != None:
                 stack.insert(0, temp.getRight())
-            except:
-                pass
             if temp.getLeft() != None:
                 stack.insert(0, temp.getLeft())
     return False
