@@ -1,0 +1,47 @@
+class Node(object):
+    def __init__(self, name):
+        assert type(name) == str
+        self.name = name
+        self.connectNodeList = []
+    
+    def getName(self):
+        return self.name
+    
+    def getConnectNodeList(self):
+        return self.connectNodeList
+    
+    def setConnectNodeList(self, other):
+        self.connectNodeList().append(other)
+    
+    def __str__(self):
+        return self.name
+
+def assignNodes(size):
+    """
+    create rectangle nodes without connections
+    
+    size: 2 argument list
+    return: a 2 dimensional list of Nodes
+    """
+
+    assert type(size) == list and len(size) == 2
+    ls = [[None]*size[1]]*size[0]
+    count = 0
+    for i in range(size[0]):
+        for j in range(size[1]):
+            name = 'n' + str(count)
+            count += 1
+            print count
+            print name
+            ls[i][j] = Node(name)
+            print 'i: ' + str(i)
+            print 'j: ' + str(j)
+            print ls[i][j].getName()
+            print '-----------'
+    return ls
+
+def printNodes(ls):
+    for i in ls:
+        for j in i:
+            print j.getName()
+             
